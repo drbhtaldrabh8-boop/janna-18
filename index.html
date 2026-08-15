@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>جنة | عامك الثامن عشر 🤍</title>
+
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Tahoma,sans-serif;
+background:#070309;color:#fff;touch-action:none
+}
+.app{
+height:100dvh;position:relative;overflow:hidden;
+background:
+radial-gradient(circle at 50% 10%,#6b214f 0,transparent 28%),
+radial-gradient(circle at 10% 85%,#32154b 0,transparent 35%),
+radial-gradient(circle at 90% 70%,#42152f 0,transparent 30%),
+linear-gradient(145deg,#070309,#160817 55%,#050207)
+}
+.stars{position:absolute;inset:0;pointer-events:none}
+.star{
+position:absolute;width:2px;height:2px;border-radius:50%;
+background:#fff;opacity:.4;animation:twinkle 3s infinite
+}
+@keyframes twinkle{
+0%,100%{opacity:.2;transform:scale(.6)}
+50%{opacity:1;transform:scale(1.8)}
+}
+.moon{
+position:absolute;top:7%;left:50%;transform:translateX(-50%);
+width:145px;height:145px;border-radius:50%;
+background:radial-gradient(circle at 35% 30%,#fff,#eee 55%,#cfcfcf);
+box-shadow:0 0 90px #f5c8e8
+}
+.moon:after{
+content:"";position:absolute;width:145px;height:145px;border-radius:50%;
+background:#10050f;left:43px;top:-10px
+}
+.slides{
+display:flex;height:100%;
+transition:transform .8s cubic-bezier(.77,0,.18,1)
+}
+.slide{
+min-width:100%;height:100%;
+display:flex;flex-direction:column;
+justify-content:center;align-items:center;
+text-align:center;padding:45px 24px 110px;
+overflow:hidden
+}
+h1{
+font-size:clamp(55px,17vw,92px);margin:10px 0;
+text-shadow:0 0 40px #efafd8
+}
+h2{
+font-size:clamp(29px,8.5vw,50px);
+margin:10px 0 20px
+}
+p{
+max-width:650px;color:#f1e9ef;
+line-height:2;font-size:17px
+}
+.small{color:#d8afcb;font-size:13px}
+.btn{
+border:1px solid #e7a8d0;
+background:linear-gradient(135deg,#9b437d,#511c51);
+color:#fff;border-radius:999px;
+padding:15px 27px;font-size:16px;
+box-shadow:0 8px 35px #0009;
+margin-top:20px
+}
+.btn:active{transform:scale(.95)}
+.progress{
+position:absolute;z-index:30;top:12px;left:20px;right:20px
+}
+.bar{height:3px;background:#ffffff20;border-radius:9px}
+.fill{height:100%;width:0;background:#edb0d7;transition:.6s}
+.counter{font-size:11px;color:#c9a8bd;margin-top:6px}
+.big18{
+font-size:150px;font-weight:900;line-height:1;
+opacity:0;transform:scale(.25);
+transition:1s cubic-bezier(.2,.9,.2,1);
+text-shadow:0 0 80px #f0afd8
+}
+.show18 .big18{opacity:1;transform:scale(1)}
+.fade{
+opacity:0;transform:translateY(25px);
+transition:1s .5s
+}
+.show18 .fade{opacity:1;transform:none}
+.reasons{
+display:grid;grid-template-columns:repeat(3,1fr);
+gap:9px;width:100%;max-width:600px
+}
+.reason{
+height:72px;border:1px solid #e0a2cd30;
+background:#ffffff09;border-radius:19px;
+color:#fff;font-size:18px
+}
+.reason:active{transform:scale(.94)}
+.reason span{
+display:block;color:#bd8eae;font-size:10px;margin-bottom:4px
+}
+.memory{
+width:100%;max-width:600px;display:grid;gap:12px
+}
+.mem{
+padding:21px;border-radius:21px;
+background:linear-gradient(145deg,#ffffff0b,#ffffff04);
+border:1px solid #e0a2cd2d;text-align:right
+}
+.mem p{display:none;font-size:14px;margin:12px 0 0}
+.mem.open p{display:block}
+.mem b{font-size:17px}
+.envelopes{
+display:grid;grid-template-columns:1fr 1fr;
+gap:13px;width:100%;max-width:550px
+}
+.env{
+padding:26px 10px;border-radius:23px;
+background:linear-gradient(145deg,#ffffff0d,#ffffff04);
+border:1px solid #e0a2cd35;color:#fff;font-size:15px
+}
+.env:active{transform:scale(.95)}
+.env div{font-size:40px;margin-bottom:8px}
+.audioBox{
+width:min(92%,480px);padding:35px 20px;
+border-radius:30px;
+background:linear-gradient(145deg,#401530,#170917);
+border:1px solid #e5a4ce;
+box-shadow:0 15px 50px #0008
+}
+.audioIcon{font-size:72px}
+.audioBtn{
+border:1px solid #e7a8d0;
+background:linear-gradient(135deg,#9b437d,#511c51);
+color:#fff;border-radius:999px;
+padding:15px 24px;font-size:16px;
+box-shadow:0 8px 35px #0008;margin-top:10px
+}
+audio{width:100%;margin-top:18px}
+.modal{
+position:fixed;inset:0;z-index:100;
+display:none;align-items:center;justify-content:center;
+padding:20px;background:#000d;
+backdrop-filter:blur(18px)
+}
+.modalBox{
+max-height:84vh;overflow:auto;width:100%;max-width:680px;
+background:linear-gradient(145deg,#1d0b1c,#0c050d);
+border:1px solid #e2a1ca;border-radius:30px;
+padding:27px 23px;
+box-shadow:0 20px 80px #000
+}
+.modalBox h2{text-align:center;font-size:27px}
+.poem{
+white-space:pre-line;line-height:2.15;
+text-align:right;font-size:15px;color:#f5eaf1
+}
+.close{
+display:block;margin:20px auto 0;
+border:0;border-radius:30px;
+padding:12px 27px;background:#fff;color:#170914
+}
+.nav{
+position:absolute;z-index:40;bottom:18px;
+left:18px;right:18px;
+display:flex;justify-content:space-between
+}
+.nav button{
+border:1px solid #e0a2cd55;
+background:#ffffff0d;color:#fff;
+width:52px;height:52px;border-radius:50%;
+font-size:23px
+}
+.next{width:auto!important;padding:0 21px}
+.final{
+opacity:0;transform:scale(.75);
+transition:1.3s
+}
+.final.on{opacity:1;transform:scale(1)}
+.heart{font-size:85px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{transform:scale(1.15)}}
+.spark{
+position:fixed;z-index:200;pointer-events:none;
+animation:fly 1.6s forwards
+}
+@keyframes fly{
+to{
+opacity:0;
+transform:translate(var(--x),var(--y)) scale(.1) rotate(180deg)
+}
+}
+@media(max-width:420px){
+.big18{font-size:125px}
+.reason{height:66px;font-size:15px}
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="stars" id="stars"></div>
+<div class="moon"></div>
+
+<div class="progress">
+<div class="bar"><div class="fill" id="fill"></div></div>
+<div class="counter" id="counter">1 / 8</div>
+</div>
+
+<div class="slides" id="slides">
+
+<!-- البداية -->
+<section class="slide">
+<div style="margin-top:150px">
+<div class="small">15 أغسطس 2026</div>
+<h1>جنة</h1>
+<p>
+اليوم مو يوم عادي…<br>
+اليوم بدأت سنة جديدة من أجمل سنوات عمرك.
+</p>
+<button class="btn" onclick="next()">ابدئي رحلتك 🤍</button>
+</div>
+</section>
+
+<!-- 18 -->
+<section class="slide" id="s18">
+<div class="small">عامك الجديد</div>
+<div class="big18">18</div>
+
+<div class="fade">
+<h2>عامك الثامن عشر 🎂</h2>
+<p>
+كبرتي سنة، وكبر معك غلاك في قلبي.<br>
+أتمنى يكون عامك كله فرح وطمأنينة وسعادة.
+</p>
+</div>
+
+<button class="btn" onclick="show18()">اضغطي هنا ✨</button>
+</section>
+
+<!-- الأسباب -->
+<section class="slide">
+<div class="small">كل رقم وراءه شيء أحبه فيك</div>
+<h2>18 شيئًا أحبّه فيك ❤️</h2>
+
+<div class="reasons" id="reasons"></div>
+</section>
+
+<!-- الرحلة -->
+<section class="slide">
+<div class="small">حكايتنا</div>
+<h2>رحلتنا 🕰️</h2>
+
+<div class="memory">
+
+<div class="mem" onclick="this.classList.toggle('open')">
+<b>البداية ✨</b>
+<p>
+هنا بدأت حكاية صارت من أجمل الأشياء في حياتي.
+</p>
+</div>
+
+<div class="mem" onclick="this.classList.toggle('open')">
+<b>أجمل ذكرى 🤍</b>
+<p>
+بعض الذكريات ما تحتاج صورة… يكفي إنها محفورة بالقلب.
+</p>
+</div>
+
+<div class="mem" onclick="this.classList.toggle('open')">
+<b>اليوم 🎂</b>
+<p>
+اليوم جنة دخلت عامها الثامن عشر، وأنا سعيد إني أشاركك فرحتك ولو من بعيد.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- الأظرف -->
+<section class="slide">
+<div class="small">اختاري ظرفًا</div>
+<h2>افتحي رسالة 💌</h2>
+
+<div class="envelopes">
+
+<button class="env" onclick="letter('اشتياق')">
+<div>💌</div>
+عندما تشتاقين
+</button>
+
+<button class="env" onclick="letter('حزن')">
+<div>🌷</div>
+عندما تحزنين
+</button>
+
+<button class="env" onclick="letter('ميلاد')">
+<div>🎂</div>
+في عيد ميلادك
+</button>
+
+<button class="env" onclick="letter('قصيدة')">
+<div>📝</div>
+قصيدة منّي لكِ
+</button>
+
+</div>
+</section>
+
+<!-- الصوت -->
+<section class="slide">
+
+<div class="small">رسالة سجلتها لكِ</div>
+<h2>صوتي لك 🎧</h2>
+
+<div class="audioBox">
+
+<div class="audioIcon">🎙️</div>
+
+<p>
+اضغطي هنا… أبيك تسمعين شيء من قلبي 🤍
+</p>
+
+<button class="audioBtn" onclick="playVoice()">
+🎙️ اسمعي صوتي يا جنتي 🤍
+</button>
+
+<audio id="voiceAudio" controls>
+<source src="اهداء.m4a" type="audio/mp4">
+</audio>
+
+</div>
+
+</section>
+
+<!-- لو كنت بجانبك -->
+<section class="slide">
+
+<div class="small">لو كنت بجانبك الآن</div>
+<h2>🌹</h2>
+
+<p>
+كان ودي أكون معك في يوم ميلادك،
+وأشوف فرحتك بعيني،
+وأقول لك كل عام وانتي بخير وأنا جنبك.
+
+<br><br>
+
+لكن حتى لو أخذت المسافة مني وجودي،
+ما قدرت تاخذ مني قلبي ودعائي لك.
+
+<br><br>
+
+وأتمنى تكون هذي الهدية الصغيرة
+شيء يخليك تبتسمين كل ما فتحتيها.
+</p>
+
+<button class="btn" onclick="next()">
+آخر مفاجأة ✨
+</button>
+
+</section>
+
+<!-- النهاية -->
+<section class="slide">
+
+<div class="final" id="final">
+
+<div class="heart">🤍</div>
+
+<h1>يا جنتي…</h1>
+
+<p>
+كل عام وانتي جنتي.<br>
+وكل عام وأنا أحبك أكثر.<br>
+وكل عام وانتي أجمل صدفة صارت في عمري.<br>
+وكل عام وانتي العمر اللي أتمنى أكمله معك. ♥️
+</p>
+
+<div class="small">
+من شخص يتمنى لكِ العمر كله فرحًا 🤍
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<div class="nav">
+<button onclick="prev()">‹</button>
+<button class="next" onclick="next()">التالي 🤍</button>
+</div>
+
+<!-- النافذة -->
+<div class="modal" id="modal">
+<div class="modalBox">
+
+<h2 id="modalTitle"></h2>
+<div id="modalText"></div>
+
+<button class="close" onclick="closeModal()">
+إغلاق 🤍
+</button>
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+let current=0;
+const total=8;
+
+const slides=document.getElementById("slides");
+
+/* 18 سبب */
+
+const reasons=[
+"ضحكتك، لأنها قادرة تغيّر مزاج يوم كامل.",
+"صوتك، لأنه صار له مكان خاص عندي.",
+"قلبك، لأنه أجمل شيء فيك.",
+"عفويتك، اللي تخليك مختلفة.",
+"اهتمامك بالتفاصيل الصغيرة.",
+"طيبتك اللي تظهر بدون ما تحاولين.",
+"حضورك، حتى لو كنتِ ساكتة.",
+"تفاصيلك اللي يمكن ما تنتبهين لها.",
+"طريقة كلامك اللي صارت مألوفة لقلبي.",
+"نظرتك للأشياء بطريقة مختلفة.",
+"الأمان اللي أحسه وأنا أكلمك.",
+"فرحتك اللي تخليني أفرح معك.",
+"حنانك واهتمامك.",
+"جنونك الحلو اللي ما يشبه أحد.",
+"اختلافك عن كل الناس.",
+"وجودك في حياتي.",
+"كونك جنة… وهذا الاسم ما اخترته عبث.",
+"لأنك أنتِ… جنة."
+];
+
+const reasonsBox=document.getElementById("reasons");
+
+reasons.forEach((text,i)=>{
+const b=document.createElement("button");
+b.className="reason";
+b.innerHTML=
+`<span>${String(i+1).padStart(2,"0")}</span>${i+1}`;
+b.onclick=()=>openModal(
+`السبب ${i+1} 🤍`,
+`<p>${text}</p>`
+);
+reasonsBox.appendChild(b);
+});
+
+/* التنقل */
+
+function update(){
+
+slides.style.transform=
+`translateX(${current*100}%)`;
+
+document.getElementById("fill").style.width=
+((current+1)/total*100)+"%";
+
+document.getElementById("counter").textContent=
+`${current+1} / ${total}`;
+
+if(current===7){
+
+setTimeout(()=>{
+document.getElementById("final").classList.add("on");
+},300);
+
+burst();
+}
+}
+
+function next(){
+
+if(current<total-1){
+current++;
+update();
+burst();
+}
+}
+
+function prev(){
+
+if(current>0){
+current--;
+update();
+}
+}
+
+/* ظهور 18 */
+
+function show18(){
+
+document.getElementById("s18")
+.classList.add("show18");
+
+burst();
+}
+
+/* الصوت */
+
+function playVoice(){
+
+const audio=document.getElementById("voiceAudio");
+
+audio.play().catch(()=>{});
+
+burst();
+}
+
+/* الرسائل */
+
+const letters={
+
+اشتياق:
+`إذا اشتقتي لي، تذكري إن فيه شخص يمكن يكون بعيد عنك بالمكان، لكنه قريب منك بالقلب والدعاء.
+
+وأنا إذا اشتقت لك، يكفيني أتذكر إنك موجودة بحياتي. 🤍`,
+
+حزن:
+`إذا حزنتي، أتمنى تلقين دائمًا شيء يرجع الابتسامة لوجهك.
+
+ما أقدر أوعدك إن الحياة ما راح تحزنك، لكن أتمنى من قلبي إن كل حزن يمر عليك يكون خفيف. 🌷`,
+
+ميلاد:
+`كل عام وانتي بخير يا جنة.
+
+اليوم مو مجرد تاريخ في التقويم،
+اليوم اليوم اللي انولدت فيه إنسانة صار وجودها بالنسبة لي شيء كبير جدًا.
+
+الله يجعل عامك الثامن عشر أجمل أعوامك. 🎂`,
+
+قصيدة:
+`يا جنتي اليوم 18 من عمرك
+واليوم عمري من فرحته زاد عام
+
+يا اجمل سنين العمر ويا اجمل اقدرا العمر وياك 
+يا اول فرح سكن وسط قلبي ولا نام
+
+18 عام مرت من عمرك
+وانا اتمنى العمر كله لك ازهار
+
+كبرتي سنة وانا زاد فيني غلاك
+وصار حبك في خفوقي اكبر من اول
+
+ما هو غريب اني احبك كل يوم اكثر
+وانتي كل يوم يزداد بعيني حلاك 
+
+يا جنتي يا بنت 18 يا حلوة العمر
+يا وردة العمر اللي تفتحت بقلبي
+
+اليوم ميلادك والفرح لبس ثوبه
+واليوم حتى الليل من فرحته ستنار وبتهج
+
+يا جعل عامك هذا بداية سنين
+كلها فرح وكلها حب وطمأنينه
+
+يا جعل ربي يحفظك من كل عين
+ويكتب لك من السعد اجمل سنينه
+
+انا ما ابي اهنيك مثل باقي البشر
+واقول كل عام وانتي بخير وخلاص
+
+ابي اقول اني احمد الله كل عام
+انه عطاني انسانة لا والله منتي انسان انتي ملاك انتي جنة 
+
+يا جنتي انتي ما كبر عمرك بس
+كبر المكان اللي سكنتيه بوجداني
+
+كبرت 18 سنة في هالدنيا
+وانا اتمنى اكون معك في باقي الاعوام
+
+يا زين 18 سنة يوم صارت فيك
+يا زين عام جديد يبتدي من عيونك
+
+حتى الرقم اليوم صار احلى من اسمه
+لانه ارتبط بعمر جنة وبوجودك
+
+انتي اذا تبسمتي في يوم ميلادك
+اشوف الدنيا كلها تضحك لضحكتك
+
+وانتي اذا فرحتي يفرح قلبي معك
+كاني انا اللي اليوم عيد ميلاده
+
+يا جنتي لو اقدر اهديك من عمري
+كان اهديتك سنين العمر كلها
+
+لكن هديتي اليوم قلب يحبك
+وقلب ما عرف غيرك ولا يبي سواها
+
+احبك يا جنة حب ما هو تهنئة
+ولا هو كلام ينقال في يوم ميلاد
+
+احبك حب انسان شاف فيك امنية
+وصارت قدام عينه حقيقة وازداد
+
+من يوم عرفتك وانا اشوفك غير
+مو مثل باقي البشر ولانتي مثل غيرك انسان
+
+انتي الدعوة اللي قلتها في قلبي
+واللي تمنيتها وجاتني ياحلا من جاء
+
+يا جنتي اليوم يومك فافرحي
+وخلي عيونك من الفرح تبتسم
+
+ابي اشوفك سعيدة لين اخر العمر
+لان سعادتك عندي تساوي أعوام
+
+وان دمعت عينك اليوم من كثر الفرح
+ودي اكون اول يد تمسح دموعك واضمك بل حضان 
+
+مو دمعة حزن لا يا بعد روحي
+دمعة فرح من كثر ما القلب يحبك
+
+يا جعل عامك 18 ما يعرف حزن
+ولا يعرف الخذلان ولا يعرف الوجع
+
+يا جعل كل خطوة تمشينها بحياتك
+تلقى ورى خطوتك فرحة وسعادة ياملاك
+
+ويا جعل ربي يحفظ قلبك لي
+ويبعد عنك كل شر وكل جراح
+
+جنتي يا اول وآخر امنياتي
+يا اللي وجودك غير شكل حياتي
+
+اليوم مو بس يوم ميلادك يا حبيبتي
+اليوم يوم اقول فيه للعمر شكرا انك جبتها لي
+
+كل عام وانتي حبيبتي وعشيقتي
+كل عام وانتي روحي وانتي جنتي وزوجتي والله 
+
+كل عام وانتي الشي اللي اذا شفته
+قلت الحمد لله انك صرتي من نصيبي
+
+وكل عام وانا احبك اكثر من قبله
+وكل عام وانتي تكبرين داخل قلبي
+
+ولو قالوا لي وش اجمل هدية اليوم
+بقول ان جنة كملت 18 سنة
+
+لان بعض الهدايا تنحط داخل صندوق
+وانتي هدية ربي حطها داخل روحي وبقلبي بعد 
+
+يا رب تحفظ جنتي وتطول عمرها
+وتجعل سنينها كلها افراح وسعادة 
+
+وتكتب لها من كل درب اجمله
+وتبعد عنها كل ضيقة وكل اذى
+
+وتجمعني بها على خير وحلال
+وتخلي محبتنا تكبر لبعض
+
+واذا مر عامها التاسع عشر بعد عام
+اكون اول من يقول لها: يا جنتي كل عام وانتي بخير
+
+واذا مرت عشرين وثلاثين وكل الاعوام
+ابقى احب نفس البنت اللي احبها اليوم
+
+فاطمة… يا جنة عمري ويا اجمل اعيادي
+يا اول حب صدق سكن وسط فؤادي
+
+اليوم دخلتي عامك 18
+وانا دخلت معك فرحة جديدة في حياتي
+
+كل عام وانتي جنتي
+وكل عام وانا احبك اكثر
+وكل عام وانتي اجمل صدفة صارت في عمري
+وكل عام وانتي العمر اللي اتمنى اكمله معك. ♥️`
+};
+
+/* فتح الرسائل */
+
+function letter(type){
+
+if(type==="قصيدة"){
+
+openModal(
+"قصيدة منّي لكِ 📝",
+`<div class="poem">${letters.قصيدة}</div>`
+);
+
+}else{
+
+openModal(
+type,
+`<p>${letters[type]}</p>`
+);
+
+}
+
+}
+
+function openModal(title,content){
+
+document.getElementById("modalTitle")
+.textContent=title;
+
+document.getElementById("modalText")
+.innerHTML=content;
+
+document.getElementById("modal")
+.style.display="flex";
+
+burst();
+}
+
+function closeModal(){
+
+document.getElementById("modal")
+.style.display="none";
+}
+
+/* التأثيرات */
+
+function burst(){
+
+for(let i=0;i<14;i++){
+
+const s=document.createElement("div");
+
+s.className="spark";
+
+s.textContent=
+Math.random()>.45?"🤍":"✨";
+
+s.style.left="50%";
+s.style.top="50%";
+
+s.style.setProperty(
+"--x",
+(Math.random()*360-180)+"px"
+);
+
+s.style.setProperty(
+"--y",
+(Math.random()*-450-80)+"px"
+);
+
+document.body.appendChild(s);
+
+setTimeout(()=>s.remove(),1600);
+}
+}
+
+/* النجوم */
+
+for(let i=0;i<70;i++){
+
+const s=document.createElement("div");
+
+s.className="star";
+
+s.style.left=Math.random()*100+"%";
+s.style.top=Math.random()*100+"%";
+s.style.animationDelay=Math.random()*3+"s";
+
+document.getElementById("stars").appendChild(s);
+}
+
+/* السحب */
+
+let startX=0;
+
+document.addEventListener("touchstart",e=>{
+startX=e.touches[0].clientX;
+},{passive:true});
+
+document.addEventListener("touchend",e=>{
+
+const diff=e.changedTouches[0].clientX-startX;
+
+if(Math.abs(diff)>60){
+
+if(diff<0)next();
+else prev();
+
+}
+
+},{passive:true});
+
+/* الكيبورد */
+
+document.addEventListener("keydown",e=>{
+
+if(e.key==="ArrowLeft")next();
+
+if(e.key==="ArrowRight")prev();
+
+});
+
+update();
+
+</script>
+
+</body>
+</html>
